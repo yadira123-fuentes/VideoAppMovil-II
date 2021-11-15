@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PhotoApp.Views.VistaListaVIdeos">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Frame BackgroundColor="#2196F3" Padding="10" CornerRadius="0">
+            <Label Text="Lista de Videos" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <CollectionView x:Name="ListVideos" SelectionMode="Single" SelectionChanged="ListVideos_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Ver" BackgroundColor="#2196F3" Invoked="SwipeItem_Invoked" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding nombre}" Grid.Row="0" Grid.Column="0" TextColor="Black" Padding="10"></Label>
+                                <Label Text="{Binding descripcion}" Grid.Row="0" Grid.Column="1" TextColor="Black"></Label>
+                                <Label Text="{Binding ruta}" Grid.Row="0" Grid.Column="2" TextColor="Black" HorizontalOptions="Center"></Label>
+                            </Grid>
+                        </StackLayout>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
